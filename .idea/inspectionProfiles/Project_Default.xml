@@ -1,0 +1,70 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <option name="myLocal" value="true" />
+    <inspection_tool class="CheckTagEmptyBody" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ELValidationInJSP" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="ForLoopThatDoesntUseLoopVariable" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ForLoopThatDoesntUseLoopVariableJS" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="TOP_LEVEL_CLASS_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="INNER_CLASS_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="METHOD_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="@return@param" />
+        </value>
+      </option>
+      <option name="FIELD_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="IGNORE_DEPRECATED" value="false" />
+      <option name="IGNORE_JAVADOC_PERIOD" value="true" />
+      <option name="IGNORE_DUPLICATED_THROWS" value="false" />
+      <option name="IGNORE_POINT_TO_ITSELF" value="false" />
+      <option name="myAdditionalJavadocTags" value="" />
+    </inspection_tool>
+    <inspection_tool class="LoggerInitializedWithForeignClass" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="loggerClassName" value="org.apache.log4j.Logger,org.slf4j.LoggerFactory,org.apache.commons.logging.LogFactory,java.util.logging.Logger" />
+      <option name="loggerFactoryMethodName" value="getLogger,getLogger,getLog,getLogger" />
+    </inspection_tool>
+    <inspection_tool class="NonSerializableFieldInSerializableClass" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignorableAnnotations">
+        <value />
+      </option>
+      <option name="ignoreAnonymousInnerClasses" value="false" />
+      <option name="superClassString" value="java.awt.Component" />
+    </inspection_tool>
+    <inspection_tool class="NonStaticFinalLogger" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="loggerClassName" value="java.util.logging.Logger" />
+    </inspection_tool>
+    <inspection_tool class="ObjectEquality" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="m_ignoreEnums" value="true" />
+      <option name="m_ignoreClassObjects" value="false" />
+      <option name="m_ignorePrivateConstructors" value="false" />
+    </inspection_tool>
+    <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
+      <option name="processCode" value="true" />
+      <option name="processLiterals" value="true" />
+      <option name="processComments" value="true" />
+    </inspection_tool>
+    <inspection_tool class="SynchronizationOnLocalVariableOrMethodParameter" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="reportLocalVariables" value="true" />
+      <option name="reportMethodParameters" value="true" />
+    </inspection_tool>
+    <inspection_tool class="WebProperties" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>

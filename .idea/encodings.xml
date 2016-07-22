@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/plukh/kpltest/HealthServlet.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/plukh/kpltest/SignalUncaughtExceptionHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/plukh/kpltest/health/HealthServletModule.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/org/plukh/kpltest/health/JettyHealthCheckServerImpl.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/bin/mkfifo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/log4j2.xml" charset="UTF-8" />
+  </component>
+</project>

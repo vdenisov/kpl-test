@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration shutdownHook="disable">
+  <appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+       <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5p [%c{1}] %m%n" />
+    </Console>
+  </appenders>
+
+  <loggers>
+    <logger name="org.plukh" level="TRACE"/>
+
+    <root level="INFO">
+      <appender-ref ref="Console" />
+    </root>
+  </loggers>
+</configuration>

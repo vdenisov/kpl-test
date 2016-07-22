@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.plukh</groupId>
+  <artifactId>kpl-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <log4j2.version>2.6.1</log4j2.version>
+    <jetty.version>9.3.7.v20160115</jetty.version>
+    <aws-sdk.version>1.11.13</aws-sdk.version>
+  </properties>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>boxfuse-repo</id>
+      <url>https://files.boxfuse.com</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <dependencies>
+    <!-- log4j 2.0 -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jul</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j2.version}</version>
+    </dependency>
+
+    <!-- Joda Time -->
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.9.4</version>
+    </dependency>
+
+    <!-- commons-lang -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.4</version>
+    </dependency>
+
+    <!-- Jetty -->
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
+
+    <!-- AWS SDK -->
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-kinesis</artifactId>
+      <version>${aws-sdk.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>aws-java-sdk-dynamodb</artifactId>
+      <version>${aws-sdk.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.amazonaws</groupId>
+      <artifactId>amazon-kinesis-producer</artifactId>
+      <version>0.10.2</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
+        <executions>
+          <execution>
+            <id>shade</id>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <filters>
+                <filter>
+                  <artifact>*:*</artifact>
+                  <excludes>
+                    <exclude>META-INF/*.SF</exclude>
+                    <exclude>META-INF/*.DSA</exclude>
+                    <exclude>META-INF/*.RSA</exclude>
+                    <exclude>META-INF/*.EC</exclude>
+                  </excludes>
+                </filter>
+              </filters>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>org.plukh.kpltest.KplTestMain</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.1</version>
+      </plugin>
+
+      <plugin>
+        <groupId>com.boxfuse.client</groupId>
+        <artifactId>boxfuse-maven-plugin</artifactId>
+        <version>1.20.8.1057</version>
+        <configuration>
+          <app>kpl-test</app>
+          <ports>
+            <http>8080</http>
+          </ports>
+          <portsmap>
+            <http>8080</http>
+          </portsmap>
+          <healthcheck.path>/health</healthcheck.path>
+          <healthcheck.timeout>600</healthcheck.timeout>
+          <jvm.args>
+            -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager
+          </jvm.args>
+          <envvars>
+            <AWS_ACCESS_KEY_ID>${aws.accessKeyId}</AWS_ACCESS_KEY_ID>
+            <AWS_SECRET_ACCESS_KEY>${aws.secretAccessKey}</AWS_SECRET_ACCESS_KEY>
+          </envvars>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

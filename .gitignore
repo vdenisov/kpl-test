@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Build output
+/target
+
+### Personal workspace
+/.idea/workspace.xml
+
+### IDEA libraries/artifacts
+/.idea/artifacts
+/.idea/libraries
+
+# Shade POMs
+dependency-reduced-pom.xml
